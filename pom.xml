@@ -10,6 +10,7 @@
         <module>DataFlowFileIngest</module>
         <module>SSDataFlow</module>
         <module>FlinkDataFlow</module>
+        <module>MLDataFlow</module>
     </modules>
 
     <properties>

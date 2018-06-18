@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="DataFlowFileIngest" />
+        <module name="FlinkDataFlow" />
+        <module name="MLDataFlow" />
+        <module name="SSDataFlow" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="DataFlowFileIngest" target="1.8" />
+      <module name="FlinkDataFlow" target="1.8" />
+      <module name="MLDataFlow" target="1.8" />
+      <module name="Polaris" target="1.8" />
+      <module name="SSDataFlow" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
