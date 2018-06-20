@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DataFlowFileIngest" />
+        <module name="FileIngestDataFlow" />
         <module name="FlinkDataFlow" />
         <module name="MLDataFlow" />
         <module name="SSDataFlow" />
@@ -14,6 +15,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="DataFlowFileIngest" target="1.8" />
+      <module name="FileIngestDataFlow" target="1.8" />
       <module name="FlinkDataFlow" target="1.8" />
       <module name="MLDataFlow" target="1.8" />
       <module name="Polaris" target="1.8" />
