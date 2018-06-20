@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/scala" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/proto" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/protobuf/java" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -216,6 +218,26 @@
     <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.protobuf-java-format:protobuf-java-format:1.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.grpc:grpc-netty:1.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.grpc:grpc-core:1.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.grpc:grpc-context:1.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.errorprone:error_prone_annotations:2.0.19" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.instrumentation:instrumentation-api:0.4.3" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.opencensus:opencensus-api:0.5.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-codec-http2:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec-http:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-handler:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-buffer:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-handler-proxy:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-resolver:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.netty:netty-codec-socks:4.1.14.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.grpc:grpc-protobuf:1.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.protobuf:protobuf-java-util:3.3.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.api.grpc:proto-google-common-protos:0.1.9" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.grpc:grpc-protobuf-lite:1.6.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: io.grpc:grpc-stub:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.5" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.guava:guava:14.0.1" level="project" />
     <orderEntry type="library" name="Maven: io.kamon:kamon-core_2.11:0.6.7" level="project" />
@@ -225,13 +247,8 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.kamon:kamon-datadog_2.11:0.6.7" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.asynchttpclient:async-http-client:2.0.25" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.asynchttpclient:async-http-client-netty-utils:2.0.25" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-buffer:4.0.43.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec-http:4.0.43.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-codec:4.0.43.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-handler:4.0.43.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport-native-epoll:linux-x86_64:4.0.43.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-common:4.0.43.Final" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-transport:4.0.43.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.asynchttpclient:netty-resolver-dns:2.0.25" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.asynchttpclient:netty-resolver:2.0.25" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.asynchttpclient:netty-codec-dns:2.0.25" level="project" />

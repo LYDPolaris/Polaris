@@ -11,6 +11,7 @@
         <module>SSDataFlow</module>
         <module>FlinkDataFlow</module>
         <module>MLDataFlow</module>
+        <module>ProtoDataFlow</module>
     </modules>
 
     <properties>

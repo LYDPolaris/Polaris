@@ -4,8 +4,8 @@ import java.io._
 
 import com.google.common.hash.Hashing
 import com.google.common.io.BaseEncoding
-import com.twilio.open.protocol.Metrics
-import com.twilio.open.protocol.Metrics.Window
+import lyd.ai.ml.dataflow.protocol.Metrics
+import lyd.ai.ml.dataflow.protocol.Metrics.Window
 import com.yahoo.sketches.quantiles.DoublesSketch
 import org.apache.commons.math3.stat.descriptive.summary.Product
 import org.apache.spark.streaming.Duration

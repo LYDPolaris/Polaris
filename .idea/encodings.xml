@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/DataFlowFileIngest" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FlinkDataFlow" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MLDataFlow" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ProtoDataFlow" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SSDataFlow" charset="UTF-8" />
   </component>
 </project>
