@@ -9,7 +9,6 @@
         <module name="DataFlowFileIngest" />
         <module name="FlinkDataFlow" />
         <module name="MLDataFlow" />
-        <module name="ProtoDataFlow" />
         <module name="SSDataFlow" />
       </profile>
     </annotationProcessing>
