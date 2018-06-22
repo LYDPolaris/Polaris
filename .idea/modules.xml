@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FileIngestDataFlow/FileIngestDataFlow.iml" filepath="$PROJECT_DIR$/FileIngestDataFlow/FileIngestDataFlow.iml" />
       <module fileurl="file://$PROJECT_DIR$/FlinkDataFlow/FlinkDataFlow.iml" filepath="$PROJECT_DIR$/FlinkDataFlow/FlinkDataFlow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FlumeDataFlow/FlumeDataFlow.iml" filepath="$PROJECT_DIR$/FlumeDataFlow/FlumeDataFlow.iml" />
       <module fileurl="file://$PROJECT_DIR$/MLDataFlow/MLDataFlow.iml" filepath="$PROJECT_DIR$/MLDataFlow/MLDataFlow.iml" />
       <module fileurl="file://$PROJECT_DIR$/Polaris.iml" filepath="$PROJECT_DIR$/Polaris.iml" />
       <module fileurl="file://$PROJECT_DIR$/SSDataFlow/SSDataFlow.iml" filepath="$PROJECT_DIR$/SSDataFlow/SSDataFlow.iml" />

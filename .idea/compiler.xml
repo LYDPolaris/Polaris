@@ -9,17 +9,17 @@
         <module name="DataFlowFileIngest" />
         <module name="FileIngestDataFlow" />
         <module name="FlinkDataFlow" />
+        <module name="FlumeDataFlow" />
         <module name="MLDataFlow" />
         <module name="SSDataFlow" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="DataFlowFileIngest" target="1.8" />
       <module name="FileIngestDataFlow" target="1.8" />
       <module name="FlinkDataFlow" target="1.8" />
+      <module name="FlumeDataFlow" target="1.8" />
       <module name="MLDataFlow" target="1.8" />
       <module name="Polaris" target="1.8" />
-      <module name="ProtoDataFlow" target="1.8" />
       <module name="SSDataFlow" target="1.8" />
     </bytecodeTargetLevel>
   </component>

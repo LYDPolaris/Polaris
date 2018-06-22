@@ -26,7 +26,7 @@
         <kamon.version>0.6.7</kamon.version>
         <kafka.version>0.10.0.1</kafka.version>
         <redis.version>2.8.1</redis.version>
-        <protobuf.version>2.6.1</protobuf.version>
+        <protobuf.version>2.5.0</protobuf.version>
         <grpc.version>1.6.1</grpc.version>
     </properties>
 
