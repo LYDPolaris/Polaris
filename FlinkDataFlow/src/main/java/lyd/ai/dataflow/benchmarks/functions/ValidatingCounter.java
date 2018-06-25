@@ -1,4 +1,4 @@
-package lyd.ai.dataflow.functions;
+package lyd.ai.dataflow.benchmarks.functions;
 
 import org.apache.flink.api.common.functions.ReduceFunction;
 

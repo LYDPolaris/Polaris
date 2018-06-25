@@ -1,12 +1,9 @@
-package lyd.ai.dataflow.functions;
+package lyd.ai.dataflow.benchmarks.functions;
 
 import org.apache.flink.streaming.api.functions.source.RichParallelSourceFunction;
 
 public class IntegerLongSource extends RichParallelSourceFunction<IntegerLongSource.Record> {
-
-	private static final long serialVersionUID = 1L;
-
-	public static final class Record {
+    public static final class Record {
         public final int key;
         public final long value;
 

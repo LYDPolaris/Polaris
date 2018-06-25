@@ -16,24 +16,38 @@
  * limitations under the License.
  */
 
-package lyd.ai.dataflow;
+package lyd.ai.dataflow.benchmarks;
 
-import lyd.ai.dataflow.functions.LongSource;
-import lyd.ai.dataflow.functions.MultiplyByTwo;
-import lyd.ai.dataflow.functions.SumReduce;
+import lyd.ai.dataflow.benchmarks.functions.LongSource;
+import lyd.ai.dataflow.benchmarks.functions.MultiplyByTwo;
+import lyd.ai.dataflow.benchmarks.functions.SumReduce;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.assigners.GlobalWindows;
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.OperationsPerInvocation;
+import org.openjdk.jmh.runner.Runner;
+import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.Options;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.VerboseMode;
 
-
-public class SumLongsBenchmark {
+@OperationsPerInvocation(value = SumLongsBenchmark.RECORDS_PER_INVOCATION)
+public class SumLongsBenchmark extends BenchmarkBase {
 
 	public static final int RECORDS_PER_INVOCATION = 7_000_000;
 
-	public static void main(String[] args){
+	public static void main(String[] args)
+			throws RunnerException {
+		Options options = new OptionsBuilder()
+				.verbosity(VerboseMode.NORMAL)
+				.include(".*" + SumLongsBenchmark.class.getSimpleName() + ".*")
+				.build();
 
+		new Runner(options).run();
 	}
 
+	@Benchmark
 	public void benchmarkCount(FlinkEnvironmentContext context) throws Exception {
 
 		StreamExecutionEnvironment env = context.env;

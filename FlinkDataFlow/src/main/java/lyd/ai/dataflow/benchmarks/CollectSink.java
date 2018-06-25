@@ -1,4 +1,4 @@
-package lyd.ai.dataflow;
+package lyd.ai.dataflow.benchmarks;
 
 import org.apache.flink.streaming.api.functions.sink.SinkFunction;
 

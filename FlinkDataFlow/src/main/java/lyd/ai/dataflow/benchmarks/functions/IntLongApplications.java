@@ -1,6 +1,6 @@
-package lyd.ai.dataflow.functions;
+package lyd.ai.dataflow.benchmarks.functions;
 
-import lyd.ai.dataflow.CollectSink;
+import lyd.ai.dataflow.benchmarks.CollectSink;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.windowing.assigners.WindowAssigner;
 import org.apache.flink.streaming.api.windowing.windows.Window;

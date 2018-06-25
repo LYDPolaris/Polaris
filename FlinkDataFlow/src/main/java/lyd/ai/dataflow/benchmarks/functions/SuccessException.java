@@ -1,4 +1,4 @@
-package lyd.ai.dataflow.functions;
+package lyd.ai.dataflow.benchmarks.functions;
 
 public class SuccessException extends Exception {
 }

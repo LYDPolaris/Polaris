@@ -16,9 +16,10 @@
  * limitations under the License.
  */
 
-package lyd.ai.dataflow;
+package lyd.ai.dataflow.benchmarks;
 
-import lyd.ai.dataflow.functions.IntegerLongSource;
+import lyd.ai.dataflow.benchmarks.functions.IntegerLongSource;
+import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
 import org.apache.flink.runtime.state.AbstractStateBackend;
 import org.apache.flink.runtime.state.filesystem.FsStateBackend;
 import org.apache.flink.runtime.state.memory.MemoryStateBackend;
@@ -31,7 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-public class StateBackendBenchmarkBase {
+public class StateBackendBenchmarkBase extends BenchmarkBase {
 	public enum StateBackend {
 		MEMORY,
 		FS,
@@ -79,6 +80,12 @@ public class StateBackendBenchmarkBase {
 					break;
 				case FS_ASYNC:
 					backend = new FsStateBackend(checkpointDataUri, true);
+					break;
+				case ROCKS:
+					backend = new RocksDBStateBackend(checkpointDataUri, false);
+					break;
+				case ROCKS_INC:
+					backend = new RocksDBStateBackend(checkpointDataUri, true);
 					break;
 				default:
 					throw new UnsupportedOperationException("Unknown state backend: " + stateBackend);

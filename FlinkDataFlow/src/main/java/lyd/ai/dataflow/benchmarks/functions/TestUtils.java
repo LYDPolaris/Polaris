@@ -16,13 +16,12 @@
  * limitations under the License.
  */
 
-package lyd.ai.dataflow.functions;
+package lyd.ai.dataflow.benchmarks.functions;
 
 import org.apache.flink.api.common.JobExecutionResult;
 import org.apache.flink.client.program.ProgramInvocationException;
 import org.apache.flink.runtime.client.JobExecutionException;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-
 
 
 /**
