@@ -1,7 +1,7 @@
 package lyd.ai.dataflow.exercises.table.stream;
 
 import lyd.ai.dataflow.exercises.datastream.utils.GeoUtils;
-import lyd.ai.dataflow.exercises.table.sources.TaxiRideTableSource;
+import lyd.ai.dataflow.exercises.table.sources.TaxiRideTableSourceJ;
 import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -31,7 +31,7 @@ public class PopularPlacesSqlJ {
 		// register TaxiRideTableSource as table "TaxiRides"
 		tEnv.registerTableSource(
 				"TaxiRides",
-				new TaxiRideTableSource(
+				new TaxiRideTableSourceJ(
 						input,
 						maxEventDelay,
 						servingSpeedFactor));

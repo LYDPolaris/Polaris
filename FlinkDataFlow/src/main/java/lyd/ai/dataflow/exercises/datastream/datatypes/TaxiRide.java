@@ -16,7 +16,7 @@
 
 package lyd.ai.dataflow.exercises.datastream.datatypes;
 
-import com.dataartisans.flinktraining.exercises.datastream_java.utils.GeoUtils;
+import lyd.ai.dataflow.exercises.datastream.utils.GeoUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;

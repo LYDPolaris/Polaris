@@ -51,6 +51,7 @@ object JoinRidesWithFares {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
+    import org.apache.flink.api.scala._
     val rides = env
       .addSource(new TaxiRideSource(ridesFile, delay, servingSpeedFactor))
       .filter { ride => ride.isStart }

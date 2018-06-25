@@ -30,7 +30,7 @@ object LowLatencyEventTimeJoin {
 
     // simulated customer stream
     val customerStream = FinSources.customerSource(env)
-
+    import org.apache.flink.api.scala._
     val joinedStream = tradeStream
       .keyBy(_.customerId)
       .connect(customerStream.keyBy(_.customerId))

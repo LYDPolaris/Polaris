@@ -51,6 +51,8 @@ object LongRides {
     // operate in Event-time
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
+    import org.apache.flink.api.scala._
+
     val rides = env.addSource(new TaxiRideSource(input, maxDelay, speed))
 
     val longRides = rides

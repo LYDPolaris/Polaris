@@ -63,7 +63,7 @@ object CheckpointedLongRides {
     env.enableCheckpointing(1000)
     env.setRestartStrategy(RestartStrategies.fixedDelayRestart(60, Time.of(10, TimeUnit.SECONDS)))
 
-    val rides = env.addSource(new CheckpointedTaxiRideSource(input, speed))
+    implicit val rides = env.addSource(new CheckpointedTaxiRideSource(input, speed))
 
     val longRides = rides
       // remove all rides which are not within NYC

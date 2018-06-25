@@ -19,9 +19,9 @@ package lyd.ai.dataflow.exercises.datastream.connectors
 import java.net.{InetAddress, InetSocketAddress}
 import java.util
 
-import com.dataartisans.flinktraining.exercises.datastream_java.datatypes.TaxiRide
-import com.dataartisans.flinktraining.exercises.datastream_java.sources.TaxiRideSource
-import com.dataartisans.flinktraining.exercises.datastream_java.utils.GeoUtils
+import lyd.ai.dataflow.exercises.datastream.datatypes.TaxiRide
+import lyd.ai.dataflow.exercises.datastream.sources.TaxiRideSource
+import lyd.ai.dataflow.exercises.datastream.utils.GeoUtils
 import org.apache.flink.api.common.functions.{MapFunction, RuntimeContext}
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala._

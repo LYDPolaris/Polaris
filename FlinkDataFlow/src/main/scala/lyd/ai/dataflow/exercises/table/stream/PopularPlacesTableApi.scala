@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package lyd.ai.dataflow.exercises.table
+package lyd.ai.dataflow.exercises.table.stream
 
-//Popular
 import lyd.ai.dataflow.exercises.datastream.utils.GeoUtils.{IsInNYC, ToCellId, ToCoords}
-import lyd.ai.dataflow.exercises.table.sources.TaxiRideTableSource
+import lyd.ai.dataflow.exercises.table.sources.TaxiRideTableSourceJ
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.api.scala._
 import org.apache.flink.streaming.api.TimeCharacteristic
@@ -34,7 +33,6 @@ object PopularPlacesTableApi {
     val params = ParameterTool.fromArgs(args)
 //    val input = params.getRequired("input")
     val input ="D:\\code\\flink\\nycTaxiRides\\nycTaxiRides4"
-
     val maxEventDelay = 60       // events are out of order by max 60 seconds
     val servingSpeedFactor = 600 // events of 10 minutes are served in 1 second
 
@@ -48,7 +46,7 @@ object PopularPlacesTableApi {
     // register TaxiRideTableSource as table "TaxiRides"
     tEnv.registerTableSource(
       "TaxiRides",
-      new TaxiRideTableSource(input, maxEventDelay, servingSpeedFactor))
+      new TaxiRideTableSourceJ(input, maxEventDelay, servingSpeedFactor))
 
     // create user-defined functions
     val isInNYC = new IsInNYC

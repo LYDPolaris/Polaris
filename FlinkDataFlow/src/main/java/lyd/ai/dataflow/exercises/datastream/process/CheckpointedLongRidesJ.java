@@ -49,7 +49,7 @@ import java.util.concurrent.TimeUnit;
  * -input path-to-input-file
  *
  */
-public class CheckpointedLongRides {
+public class CheckpointedLongRidesJ {
 	public static void main(String[] args) throws Exception {
 
 		ParameterTool params = ParameterTool.fromArgs(args);
