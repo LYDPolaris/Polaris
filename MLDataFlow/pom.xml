@@ -12,11 +12,15 @@
     <groupId>lyd.ai.dataflow</groupId>
     <artifactId>MLDataFlow</artifactId>
 
+
+
+
     <properties>
-        <apache-spark.version>2.2.0</apache-spark.version>
+        <apache-spark.version>2.3.0</apache-spark.version>
         <guava.version>14.0.1</guava.version>
         <scala.version>2.11</scala.version>
         <data.sketches.version>0.10.3</data.sketches.version>
+        <versiondata.sketches.version>0.10.3</versiondata.sketches.version>
         <scala.full.version>${scala.version}.7</scala.full.version>
         <scalaplugin.version>3.2.2</scalaplugin.version>
         <jackson-core.version>2.6.5</jackson-core.version>
@@ -26,228 +30,254 @@
         <kamon.version>0.6.7</kamon.version>
         <kafka.version>0.10.0.1</kafka.version>
         <redis.version>2.8.1</redis.version>
-        <protobuf.version>2.5.0</protobuf.version>
-        <grpc.version>1.6.1</grpc.version>
+        <protobuf.version>2.6.1</protobuf.version>
     </properties>
 
+    <repositories>
+
+        <repository>
+            <id>hortonworks-repo</id>
+            <name>Hortonworks Repository</name>
+            <url>http://repo.hortonworks.com/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>hortonworks-snapshot-repo</id>
+            <name>Hortonworks Snapshot Repository</name>
+            <url>http://nexus-private.hortonworks.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
-    <!-- Spark Includes -->
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-core_${scala.version}</artifactId>
-        <version>${apache-spark.version}</version>
-        <scope>provided</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-streaming_${scala.version}</artifactId>
-        <version>${apache-spark.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-catalyst_${scala.version}</artifactId>
-        <version>${apache-spark.version}</version>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-streaming-kafka-0-10_${scala.version}</artifactId>
-        <version>${apache-spark.version}</version>
-    </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.scala-lang</groupId>-->
+        <!--<artifactId>scala-library</artifactId>-->
+        <!--<version>${scala.full.version}</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
 
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-sql_${scala.version}</artifactId>
-        <version>${apache-spark.version}</version>
-    </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.scala-lang.modules</groupId>-->
+        <!--<artifactId>scala-java8-compat_${scala.version}</artifactId>-->
+        <!--<version>0.8.0</version>-->
+        <!--</dependency>-->
 
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-sql-kafka-0-10_${scala.version}</artifactId>
-        <version>${apache-spark.version}</version>
-    </dependency>
+        <!-- Spark Includes -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-catalyst_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+        </dependency>
 
-    <dependency>
-        <groupId>org.apache.spark</groupId>
-        <artifactId>spark-hive_${scala.version}</artifactId>
-        <version>${apache-spark.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+        </dependency>
 
-    <!-- Jackson Includes -->
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-core</artifactId>
-        <version>${jackson-core.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>${jackson-core.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.fasterxml.jackson.dataformat</groupId>
-        <artifactId>jackson-dataformat-yaml</artifactId>
-        <version>${jackson-core.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-annotations</artifactId>
-        <version>${jackson-core.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.fasterxml.jackson.module</groupId>
-        <artifactId>jackson-module-scala_${scala.version}</artifactId>
-        <version>${jackson-core.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql-kafka-0-10_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+        </dependency>
 
-    <dependency>
-        <groupId>com.fasterxml.jackson.datatype</groupId>
-        <artifactId>jackson-datatype-guava</artifactId>
-        <version>${jackson-core.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_${scala.version}</artifactId>
+            <version>2.3.0</version>
+        </dependency>
 
-    <!-- S3A dependencies -->
-    <dependency>
-        <groupId>com.amazonaws</groupId>
-        <artifactId>aws-java-sdk</artifactId>
-        <version>1.7.4</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+        </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws -->
-    <dependency>
-        <groupId>org.apache.hadoop</groupId>
-        <artifactId>hadoop-aws</artifactId>
-        <version>2.7.4</version>
-        <exclusions>
-            <exclusion>
-                <groupId>com.google.protobuf</groupId>
-                <artifactId>protobuf-java</artifactId>
-            </exclusion>
-        </exclusions>
-    </dependency>
+        <!-- Jackson Includes -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-scala_${scala.version}</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
 
-    <!-- Data Sketches -->
-    <dependency>
-        <groupId>com.yahoo.datasketches</groupId>
-        <artifactId>memory</artifactId>
-        <version>${data.sketches.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-guava</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
 
-    <dependency>
-        <groupId>com.yahoo.datasketches</groupId>
-        <artifactId>sketches-core</artifactId>
-        <version>${data.sketches.version}</version>
-    </dependency>
+        <!-- S3A dependencies -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.7.4</version>
+        </dependency>
 
-    <!-- Kafka -->
-    <dependency>
-        <groupId>org.apache.kafka</groupId>
-        <artifactId>kafka-clients</artifactId>
-        <version>${kafka.version}</version>
-    </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-aws</artifactId>
+            <version>2.7.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.protobuf</groupId>
+                    <artifactId>protobuf-java</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
-    <!-- Redis -->
-    <dependency>
-        <groupId>redis.clients</groupId>
-        <artifactId>jedis</artifactId>
-        <version>${redis.version}</version>
-    </dependency>
+        <!-- Data Sketches -->
+        <dependency>
+            <groupId>com.yahoo.datasketches</groupId>
+            <artifactId>memory</artifactId>
+            <version>${data.sketches.version}</version>
+        </dependency>
 
-    <!-- Protobuf JSON -->
-    <dependency>
-        <groupId>com.google.protobuf</groupId>
-        <artifactId>protobuf-java</artifactId>
-        <version>${protobuf.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>com.yahoo.datasketches</groupId>
+            <artifactId>sketches-core</artifactId>
+            <version>${data.sketches.version}</version>
+        </dependency>
 
-    <dependency>
-        <groupId>com.googlecode.protobuf-java-format</groupId>
-        <artifactId>protobuf-java-format</artifactId>
-        <version>1.4</version>
-    </dependency>
+        <!-- Kafka -->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
 
-    <dependency>
-        <groupId>io.grpc</groupId>
-        <artifactId>grpc-netty</artifactId>
-        <version>${grpc.version}</version>
-        <scope>provided</scope>
-    </dependency>
-    <dependency>
-        <groupId>io.grpc</groupId>
-        <artifactId>grpc-protobuf</artifactId>
-        <version>${grpc.version}</version>
-        <scope>provided</scope>
-    </dependency>
-    <dependency>
-        <groupId>io.grpc</groupId>
-        <artifactId>grpc-stub</artifactId>
-        <version>${grpc.version}</version>
-        <scope>provided</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${slf4j.version}</version>
-    </dependency>
+        <!-- Redis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis.version}</version>
+        </dependency>
 
-    <!-- Add an explicit dependency on Guava 14 since that's what's available to Spark apps -->
-    <dependency>
-        <groupId>com.google.guava</groupId>
-        <artifactId>guava</artifactId>
-        <version>${guava.version}</version>
-        <scope>provided</scope>
-    </dependency>
+        <!-- Protobuf JSON -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+        </dependency>
 
-    <dependency>
-        <groupId>io.kamon</groupId>
-        <artifactId>kamon-core_${scala.version}</artifactId>
-        <version>${kamon.version}</version>
-        <scope>compile</scope>
-    </dependency>
+        <dependency>
+            <groupId>com.googlecode.protobuf-java-format</groupId>
+            <artifactId>protobuf-java-format</artifactId>
+            <version>1.4</version>
+        </dependency>
 
-    <dependency>
-        <groupId>io.kamon</groupId>
-        <artifactId>kamon-datadog_${scala.version}</artifactId>
-        <version>${kamon.version}</version>
-        <scope>runtime</scope>
-    </dependency>
-    <dependency>
-        <groupId>io.kamon</groupId>
-        <artifactId>kamon-system-metrics_${scala.version}</artifactId>
-        <version>${kamon.version}</version>
-        <scope>runtime</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Add an explicit dependency on Guava 14 since that's what's available to Spark apps -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.kamon</groupId>
+            <artifactId>kamon-core_${scala.version}</artifactId>
+            <version>${kamon.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.kamon</groupId>
+            <artifactId>kamon-datadog_${scala.version}</artifactId>
+            <version>${kamon.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.kamon</groupId>
+            <artifactId>kamon-system-metrics_${scala.version}</artifactId>
+            <version>${kamon.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.version}</artifactId>
+            <version>${apache-spark.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Note: 2.2.0 version doesn't exist. 2.1.1 works just fine -->
+        <dependency>
+            <groupId>com.holdenkarau</groupId>
+            <artifactId>spark-testing-base_${scala.version}</artifactId>
+            <version>2.1.1_0.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.version}</artifactId>
+            <version>3.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalamock</groupId>
+            <artifactId>scalamock-scalatest-support_${scala.version}</artifactId>
+            <version>3.4.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-    <build>
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>1.5.0.Final</version>
-            </extension>
-        </extensions>
-        <plugins>
-            <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.5.0</version>
-                <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
-                    <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>compile-custom</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-
-
 </project>

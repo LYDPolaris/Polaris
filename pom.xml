@@ -12,6 +12,7 @@
         <module>FlinkDataFlow</module>
         <module>MLDataFlow</module>
         <module>FlumeDataFlow</module>
+        <module>SMLDataFlow</module>
     </modules>
 
     <properties>

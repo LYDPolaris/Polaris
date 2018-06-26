@@ -1,8 +1,3 @@
-/**
- 2018 Voice Insights @ Twilio - Enjoy! twilio.com
- Work done to extend the ExpressionEncoder for Google Protocol Buffers done first by Scott Haines and perfected by Marek Radonsky.
- Shameless copy of the JavaBean Encoder from SPARK
-*/
 package lyd.ai.ml.dataflow.trend.discovery.protocol
 
 import java.lang.reflect.Method
@@ -24,7 +19,6 @@ import org.apache.spark.unsafe.types.UTF8String
 
 import scala.language.existentials
 import scala.reflect._
-
 /**
   * Utilities for protobuf expression encoders.
   * Based on Spark's JavaTypeInference class
@@ -459,10 +453,12 @@ object ProtobufEncoderUtils {
             inputObject,
             ObjectType(keyType.getRawType),
             serializerFor(_: Expression, keyType),
+            true,  //2.3  新加的
             ObjectType(valueType.getRawType),
             serializerFor(_: Expression, valueType),
             valueNullable = true
           )
+
 
         case other if other.isEnum =>
           StaticInvoke(
@@ -525,10 +521,10 @@ object ProtobufEncoderUtils {
 
     override def doGenCode(ctx: CodegenContext, ev: ExprCode): ExprCode = {
       val instanceGen = beanInstance.genCode(ctx)
-
+//      val  initFunc: String => String = _ => "";
       val javaBeanInstance = ctx.freshName("protobufBuilder")
       val beanInstanceJavaType = ctx.javaType(beanInstance.dataType)
-      ctx.addMutableState(beanInstanceJavaType, javaBeanInstance, "")
+      ctx.addMutableState(beanInstanceJavaType, javaBeanInstance)
 
       val initialize = setters.map {
         case (setterMethod, fieldValue) =>
@@ -540,7 +536,8 @@ object ProtobufEncoderUtils {
            }
          """
       }
-      val initializeCode = ctx.splitExpressions(ctx.INPUT_ROW, initialize.toSeq)
+      //spark 2.3 修改
+      val initializeCode = ctx.splitExpressions(initialize.toSeq,funcName = "init", arguments = Nil)
 
       val code = s"""
       ${instanceGen.code}

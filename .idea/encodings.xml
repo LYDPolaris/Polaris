@@ -6,6 +6,8 @@
     <file url="file://$PROJECT_DIR$/FlinkDataFlow" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FlumeDataFlow" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MLDataFlow" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SML" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SMLDataFlow" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SSDataFlow" charset="UTF-8" />
   </component>
 </project>
