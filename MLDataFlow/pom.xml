@@ -21,7 +21,7 @@
         <scala.version>2.11</scala.version>
         <data.sketches.version>0.10.3</data.sketches.version>
         <versiondata.sketches.version>0.10.3</versiondata.sketches.version>
-        <scala.full.version>${scala.version}.7</scala.full.version>
+        <scala.full.version>${scala.version}.12</scala.full.version>
         <scalaplugin.version>3.2.2</scalaplugin.version>
         <jackson-core.version>2.6.5</jackson-core.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
@@ -74,6 +74,14 @@
             <artifactId>spark-core_${scala.version}</artifactId>
             <version>${apache-spark.version}</version>
             <scope>provided</scope>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+
         </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
@@ -149,25 +157,9 @@
             <version>${jackson-core.version}</version>
         </dependency>
 
-        <!-- S3A dependencies -->
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
-            <version>1.7.4</version>
-        </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-aws -->
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-aws</artifactId>
-            <version>2.7.4</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.protobuf</groupId>
-                    <artifactId>protobuf-java</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+
+
 
         <!-- Data Sketches -->
         <dependency>
@@ -209,11 +201,11 @@
             <version>1.4</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>slf4j-log4j12</artifactId>-->
+            <!--<version>${slf4j.version}</version>-->
+        <!--</dependency>-->
 
         <!-- Add an explicit dependency on Guava 14 since that's what's available to Spark apps -->
         <dependency>
@@ -243,40 +235,10 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Tests -->
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-sql_${scala.version}</artifactId>
-            <version>${apache-spark.version}</version>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
             <version>1.8.4</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- Note: 2.2.0 version doesn't exist. 2.1.1 works just fine -->
-        <dependency>
-            <groupId>com.holdenkarau</groupId>
-            <artifactId>spark-testing-base_${scala.version}</artifactId>
-            <version>2.1.1_0.7.0</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_${scala.version}</artifactId>
-            <version>3.0.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.scalamock</groupId>
-            <artifactId>scalamock-scalatest-support_${scala.version}</artifactId>
-            <version>3.4.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

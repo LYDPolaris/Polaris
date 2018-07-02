@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AngelDataFlow" />
         <module name="DataFlow" />
         <module name="DataFlowFileIngest" />
         <module name="FileIngestDataFlow" />
@@ -17,13 +18,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="DataFlow" target="1.8" />
+      <module name="AngelDataFlow" target="1.8" />
       <module name="FileIngestDataFlow" target="1.8" />
       <module name="FlinkDataFlow" target="1.8" />
       <module name="FlumeDataFlow" target="1.8" />
       <module name="MLDataFlow" target="1.8" />
       <module name="Polaris" target="1.8" />
-      <module name="SML" target="1.8" />
       <module name="SMLDataFlow" target="1.8" />
       <module name="SSDataFlow" target="1.8" />
     </bytecodeTargetLevel>

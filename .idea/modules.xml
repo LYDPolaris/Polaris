@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AngelDataFlow/AngelDataFlow.iml" filepath="$PROJECT_DIR$/AngelDataFlow/AngelDataFlow.iml" />
       <module fileurl="file://$PROJECT_DIR$/FileIngestDataFlow/FileIngestDataFlow.iml" filepath="$PROJECT_DIR$/FileIngestDataFlow/FileIngestDataFlow.iml" />
       <module fileurl="file://$PROJECT_DIR$/FlinkDataFlow/FlinkDataFlow.iml" filepath="$PROJECT_DIR$/FlinkDataFlow/FlinkDataFlow.iml" />
       <module fileurl="file://$PROJECT_DIR$/FlumeDataFlow/FlumeDataFlow.iml" filepath="$PROJECT_DIR$/FlumeDataFlow/FlumeDataFlow.iml" />
